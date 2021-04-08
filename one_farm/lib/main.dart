@@ -32,7 +32,7 @@ class HomePage extends StatelessWidget {
               return SplashScreen();
             case Status.Unauthenticated:
             case Status.Authenticating:
-              return LoginScreen();
+              return SplashScreen();//LoginScreen();
             // case Status.Authenticated:
               // return MainScreen();
           }

@@ -12,7 +12,7 @@ class SplashScreen extends StatelessWidget {
 
     return Material(
       child: Center(
-        child: Text("Splash Screen"),
+        child: Image.asset('assets/ic_one_farm.png'),
       ),
     );
   }
