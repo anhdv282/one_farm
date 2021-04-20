@@ -20,49 +20,44 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     final auth = Provider.of<AuthRepository>(context);
     return Scaffold(
-      body: Stack(children: <Widget>[
-        Container(
-          color: Palette.greenLand,
-          padding: EdgeInsets.fromLTRB(15, 75, 15, 35),
-          child: Container (
-            decoration: new BoxDecoration(
-              color: Palette.white,
-              borderRadius: new BorderRadius.all(
-                const Radius.circular(40.0),
-              )
-            ),
-          ),
-        ),
-        Container(
-          alignment: Alignment.bottomCenter,
-          child: Image.asset('assets/ic_under_veggies_bg.png'),
-        ),
-        Container(
-          alignment: Alignment.bottomRight,
-          child: AspectRatio(
-            aspectRatio: 566/431,
-            child: Image.asset('assets/ic_veggies_bg.png'),
-          ),
-        )
-      ],),
-      // body: Container(
-      //   color: Palette.greenLand,
-      //   padding: EdgeInsets.fromLTRB(15, 75, 15, 35),
-      //   child: Stack(children: <Widget>[
-      //     Container(
-      //       decoration: new BoxDecoration(
-      //           color: Palette.white,
-      //           borderRadius: new BorderRadius.all(
-      //             const Radius.circular(40.0),
-      //           )
-      //       ),
-      //     ),
-      //     Container(
-      //       alignment: Alignment.bottomCenter,
-      //       child: Image.asset('assets/ic_under_veggies_bg.png'),
-      //     )
-      //   ]),
-      // ),
+      body: LoginBackground(_testText()),
     );
   }
+}
+
+class LoginBackground extends StatelessWidget {
+  Widget widgetContent;
+  LoginBackground(this.widgetContent);
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(children: <Widget>[
+      Container(
+        color: Palette.greenLand,
+        padding: EdgeInsets.fromLTRB(15, 75, 15, 35),
+        child: Container (
+          decoration: new BoxDecoration(
+            color: Palette.white,
+            borderRadius: new BorderRadius.all(
+              const Radius.circular(40.0),
+            )
+          ),
+          child: Center(
+            child: Container(color: Colors.red, width: 10, height: 10,),
+          ),
+        ),
+      ),
+      Positioned(child: DropdownButton(),right: 10,top: 10,width: 100,height: 30,),
+      new Positioned(
+          left: 0,
+          bottom: 0,
+          right: 0,
+          child: Image.asset('assets/ic_veggies_bg.png')
+      )
+    ],);
+  }
+}
+
+Text _testText() {
+  return Text('jhagdashjdghj');
 }
